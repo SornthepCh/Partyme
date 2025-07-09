@@ -36,10 +36,10 @@ export default function ExpertiseList() {
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="tooltip"
-          data-tip={item.name}
+          className="group"
+          title={item.name}
         >
-          <button className="btn btn-warning">
+          <button className="bg-gradient-to-b from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white font-medium py-2 px-4 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg">
             {item.name}
           </button>
         </a>
