@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  experimental: {
+    allowedDevOrigins: ['10.77.172.71'], // หรือ ['*'] สำหรับทั้งหมด
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
