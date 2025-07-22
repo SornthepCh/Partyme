@@ -14,17 +14,19 @@ export default function Home() {
         <section className="relative px-6 py-20">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent min-h-[200px] flex flex-col justify-center">
-                <TypeWriter 
-                  texts={["Hello I'm"]} 
-                  speed={50}
-                  onComplete={() => setShowSubText(true)}
-                />
+              <h1 className="text-5xl md:text-7xl font-bold mb-6 min-h-[200px] flex flex-col justify-center">
+                <span className="text-white">
+                  <TypeWriter 
+                    texts={["Hello I'm"]} 
+                    speed={15}
+                    onComplete={() => setShowSubText(true)}
+                  />
+                </span>
                 {showSubText && (
-                  <span className="text-3xl md:text-5xl block mt-4">
+                  <span className="text-3xl md:text-5xl block mt-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-600 bg-clip-text text-transparent">
                     <TypeWriter 
                       texts={["Sornthep Chimsuntorn"]} 
-                      speed={50}
+                      speed={30}
                       onComplete={() => setShowDescription(true)}
                     />
                   </span>

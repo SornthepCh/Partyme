@@ -9,7 +9,9 @@ interface ProjectItem {
   title: string
   description: string
   tech: string[]
-  image: string
+  image?: string
+  images?: string[]
+  detailsLink: string
 }
 
 const projects: ProjectItem[] = [
@@ -18,14 +20,16 @@ const projects: ProjectItem[] = [
     title: "Chenk-in",
     description: "A website designed for checking student attendance in class.",
     tech: ["next.js", "node.js", "tailwindcss", "firebase"],
-    image: "/images/me.png", 
+    image: "/images/Check.png",
+    detailsLink: "https://check-livid-kappa.vercel.app/",
   },
   {
     id: 2,
     title: "Bitcat",
     description: "An e-commerce application focused on cat products, using Firebase to store data and enable users to submit product reviews.",
     tech: ["Flutter", "firebase", "Dart"],
-    image: "/images/me.png", 
+    images: ["/images/Batcat1.jpg", "/images/Batcat2.jpg", "/images/Batcat3.jpg"],
+    detailsLink: "https://github.com/SornthepCh/Mobile-App",
   },
   {
     id: 3,
@@ -33,12 +37,17 @@ const projects: ProjectItem[] = [
     description: "This is a website to view my history in more detail.",
     tech: ["next.js", "node.js", "tailwindcss"],
     image: "/images/partyme.png",
+    detailsLink: "https://partyme.vercel.app/",
   },
 ]
 
 export default function Project() {
   const [showDescription, setShowDescription] = useState(false)
   const [showProjects, setShowProjects] = useState(false)
+
+  const handleDetailsClick = (link: string) => {
+    window.open(link, '_blank', 'noopener,noreferrer')
+  }
 
   return (
     <>
@@ -80,11 +89,24 @@ export default function Project() {
                       <div className="p-6">
                         {/* Project Image */}
                         <div className="overflow-hidden rounded-xl">
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
-                          />
+                          {project.images && project.images.length > 0 ? (
+                            <div className="grid grid-cols-3 gap-2">
+                              {project.images.map((img, imgIndex) => (
+                                <img
+                                  key={imgIndex}
+                                  src={img}
+                                  alt={`${project.title} ${imgIndex + 1}`}
+                                  className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
+                                />
+                              ))}
+                            </div>
+                          ) : project.image ? (
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                            />
+                          ) : null}
                         </div>
 
                         {/* Project Details */}
@@ -109,13 +131,11 @@ export default function Project() {
 
                         {/* Action Buttons */}
                         <div className="flex gap-3">
-                          <button className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 text-sm">
+                          <button 
+                            onClick={() => handleDetailsClick(project.detailsLink)}
+                            className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 text-sm"
+                          >
                             View Details
-                          </button>
-                          <button className="px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg font-medium hover:bg-gray-600/50 transition-all duration-300 text-sm">
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                            </svg>
                           </button>
                         </div>
                       </div>
