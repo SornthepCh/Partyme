@@ -20,7 +20,7 @@ export default function About() {
               {/* Profile Image */}
               <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-purple-500 animate-scale-in">
                 <Image
-                  src="/images/me.png"
+                  src="/images/me.jpg"
                   alt="Profile"
                   width={160}
                   height={160}
