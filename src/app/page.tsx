@@ -34,20 +34,18 @@ export default function Home() {
               </h1>
               
               {showDescription && (
-                <div className="animate-fade-in-up">
-                  <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                
+                  
+                  <p className="text-gray-300  animate-fade-in-delayed" style={{ textIndent: '2rem' }}>
                     <TypeWriter 
-                      texts={["This is a website created to show more of my history."]} 
-                      speed={10}
-                    />
-                  </p>
-                  <p className="text-gray-300 opacity-0 animate-fade-in-delayed" style={{ textIndent: '2rem' }}>
-                    I'am currently seeking an internship position as a 
+                    texts={[`I'am currently seeking an internship position as a 
                     Front-End Developer, Back-End Developer. I am eager to learn new 
                     technologies and continuously improve my skills. I am hardworking,
-                    a fast learner, and highly responsible when it comes to my work.
+                    a fast learner, and highly responsible when it comes to my work.`]}
+                    speed={20}
+                    />
                   </p>
-                </div>
+                
               )}
             </div>
           </div>

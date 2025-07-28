@@ -12,6 +12,7 @@ const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'Project', href: '/project' },
   { name: 'About', href: '/About' },
+  { name: 'Certificate', href: '/certificate' }, // ✅ เพิ่มใหม่
   { name: 'Contact', href: '/contact' },
 ]
 
